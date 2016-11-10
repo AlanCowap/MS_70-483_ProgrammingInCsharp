@@ -10,6 +10,7 @@ namespace MS_70_483_02_CreateAndUseTypes
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Hello World");
         }
     }
 }
