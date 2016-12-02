@@ -10,7 +10,18 @@ namespace MS_70_483_02_CreateAndUseTypes
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World");
+            Console.WriteLine("MS 70-483 #2 Create And Use Types");
+            Program demo = new Program();
+            String title = "\nObjective 2.1. Create Types";
+            demo.Obj21_ChooseType(title + ": Choosing a type");
         }
+
+
+        private void Obj21_ChooseType(String title)
+        {
+            Console.WriteLine(title);
+
+        }
+
     }
 }
