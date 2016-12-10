@@ -86,6 +86,10 @@ namespace MS_70_483_02_CreateAndUseTypes
             // Refer to the struct defined after this method
             //!! structs they can have state, behaviour and constructors*, but they do not inherit => saves memory
             //!! * - you can't define a no-args constructor for a struct
+            Point myPoint;// = new Point();
+            myPoint.x = 4;
+            myPoint.y = 3;
+
 
             // TODO 
             Console.WriteLine("\n");
