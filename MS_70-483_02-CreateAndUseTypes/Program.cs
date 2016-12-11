@@ -17,7 +17,7 @@ namespace MS_70_483_02_CreateAndUseTypes
             demo.Obj21_ChooseType(title + ": Choosing a type"); // p89
             demo.Obj21_BodyType(title + ": Giving your types some body"); //p93
             demo.Obj21_DesigningClasses(title + ": Designing Classes"); //p99
-                 //using generic types   p101
+            demo.Obj21_GenericTypes(title + ": Using Generic Types"); //p101
                  //extending existing types  //p103
 
 
@@ -172,14 +172,29 @@ namespace MS_70_483_02_CreateAndUseTypes
         private void Obj21_DesigningClasses(String title)
         {
             Console.WriteLine(title);
+            // Code should have:
+            // 1. High Cohesion
+            // 2. Low Coupling
+            // SOLID Principles (see Moodle for more)
+            // - Single repsonsibility
+            // - Open/closed
+            // - Liskov substituion
+            // - Interface segregation
+            // - Dependency inversion
+            Console.WriteLine("\n");
+        }
 
+
+        private void Obj21_GenericTypes(String title)
+        {
+            Console.WriteLine(title);
+            // Generics were added in C# 2
 
             Console.WriteLine("\n");
         }
 
 
 
+    } //class
 
-        } //class
-
-    } //namespace
+} //namespace
