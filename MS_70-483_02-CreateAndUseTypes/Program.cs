@@ -188,7 +188,9 @@ namespace MS_70_483_02_CreateAndUseTypes
         private void Obj21_GenericTypes(String title)
         {
             Console.WriteLine(title);
-            // Generics were added in C# 2
+            // Generics were added in C# 2, great for code reuse
+            // Generics can be used on structs, classes, interfaces, methods, properties, and delegates
+            // Multiple Generic type parameters are allowed, by convention use T, U, V, ...
 
             Console.WriteLine("\n");
         }
