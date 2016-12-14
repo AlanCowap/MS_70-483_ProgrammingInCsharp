@@ -18,7 +18,7 @@ namespace MS_70_483_02_CreateAndUseTypes
             demo.Obj21_BodyType(title + ": Giving your types some body"); //p93
             demo.Obj21_DesigningClasses(title + ": Designing Classes"); //p99
             demo.Obj21_GenericTypes(title + ": Using Generic Types"); //p101
-                 //extending existing types  //p103
+            demo.Obj21_ExtendingExistingTypes(title + ": Extending Existing Types");  //p103
 
 
            // TODO 
@@ -181,7 +181,8 @@ namespace MS_70_483_02_CreateAndUseTypes
             // - Liskov substituion
             // - Interface segregation
             // - Dependency inversion
-            Console.WriteLine("\n");
+            Console.WriteLine("High Cohesion & Low Coupling. SOLID Design Principles.");
+            Console.WriteLine();
         }
 
 
@@ -189,14 +190,56 @@ namespace MS_70_483_02_CreateAndUseTypes
         {
             Console.WriteLine(title);
             // Generics were added in C# 2, great for code reuse
-            // Generics can be used on structs, classes, interfaces, methods, properties, and delegates
-            // Multiple Generic type parameters are allowed, by convention use T, U, V, ...
+            // Use generics when you (designiner, programmer) don't know the type that will be used
+            // - e.g. How does the Programmer of the List class know what types you'll create and want to store in a List?
+            // - they don't know, so instead of a specified type they can use a generic type.
+            //             
+            List<Student> oddList = new List<Student>(); // 'Student' is substitued for the Generic type in the List class List<T>
+            // Generic collections can be found in: System.Collections.Generic.*
+
+            // Not all Collections use generics, you can have a collection of type System.Object
+            System.Collections.ArrayList al = new System.Collections.ArrayList(); // this is a nongeneric collection
+                                                                                  // Nongeneric collections can be found in: System.Collections.*
+
+            // Generics can be used on structs, classes, interfaces, methods, properties, and delegates (~ S.C.I.M.P.D)
+            // Multiple Generic type parameters are allowed, by convention use T, U, V, ... to denote the generic type
+            // Generic types can be constrained see p. 102
+            // - e.g. to struct, or class, new constructor, base or derived class, implement an interface
+            // Can set a default value for the generic type (should it be null, 0, 0.0, false, '' etc).
+
+            // Go and have a look at Catalogue.cs to see a custom Generic class
+            // Now let's see how we might use it
+
+            //Catalogue cat = new Catalogue();    // Compiler won't allow this, generic types are strongly-typed
+            Catalogue<College> cat = new Catalogue<College>();    // That's better :)
+            // Now I have a Catalogue of Colleges
+            cat.Add(new College(12));
+            // What if I want a Catalogue of students, let's try to avoid The Facebook
+            Catalogue<Student> students = new Catalogue<Student>();
+            for (int i=0; i < 10; ++i)
+                students.Add(new Student(i));
+            //students.Add(new College(12));  // Compiler won't allow this, incompatible types (Student vs College)
+            // Let's remove a couple of students...
+            students.RemoveAt(-1); //our Catalogue validates input so this is handled
+            students.RemoveAt(100000); //our Catalogue validates input so this is handled
+            students.RemoveAt(5); // remove Student at Catalgoue index 5
+            students.Pop();     // remove Student at Catalogue last index
+            // So let's iterate through our Catalogue of Students and output each Students ID
+            for (int i = 0; i < students.Size; ++i)
+                Console.WriteLine(students.GetItemAt(i).Id);
 
             Console.WriteLine("\n");
         }
 
+        private void Obj21_ExtendingExistingTypes(String title)
+        {
+            Console.WriteLine(title);
 
+
+
+            Console.WriteLine("\n");
+        }
 
     } //class
 
-} //namespace
+    } //namespace
