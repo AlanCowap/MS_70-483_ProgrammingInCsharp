@@ -74,11 +74,22 @@ namespace MS_70_483_02_CreateAndUseTypes
 
 
             // 3. User-defined conversions
-            //You can also add support to your own classes for implicit and explicit conversions (growth mindset!)
-
+            //You can also add support to your own classes for implicit and explicit conversions to various types (growth mindset!)
+            // Check out the Gravity class below
+            Gravity grav = new Gravity(9.81F);
+            float acceleration = grav;              // taking advantage of our user-defined implicit conversion
+            int accelerationRounded = (int) grav;   // taking advantage of our user-defined explicit conversion
+            //Another benefit of user-defined conversion is it can be used implicitly as follows
+            Console.WriteLine(grav); // takes the user defined implicit conversion to float
+            String str = (String) grav; //user defined explicit conversion to String
+            Console.WriteLine("Gravity is " + str); // Lovely.
+            Console.WriteLine("Gravity is " + grav); // Careful now!! We didn't allow for implicit conversion to String ;)
+            Console.WriteLine("Gravity is " + (String) grav); // That's better.
 
 
             // 4. Conversion with a helper class
+            // 
+
 
 
             Console.WriteLine("\n");
@@ -97,5 +108,33 @@ namespace MS_70_483_02_CreateAndUseTypes
 
 
     } //class
+
+    class Gravity //demo some im/ex-plicit user-defined conversions
+    {
+        public Gravity(float acceleration)
+        {
+            Acceleration = acceleration;
+        }
+        public float Acceleration { get; set; }
+
+        public static implicit operator float(Gravity gravity)
+        {
+            return gravity.Acceleration;
+        }
+
+        public static explicit operator int(Gravity gravity)
+        {
+            return (int)gravity.Acceleration;
+        }
+
+        public static explicit operator String(Gravity gravity)
+        {
+            return Convert.ToString(gravity.Acceleration);
+        }
+
+
+    }
+
+
 
 } //namespace
