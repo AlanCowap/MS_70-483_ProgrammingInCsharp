@@ -11,7 +11,7 @@ namespace MS_70_483_02_CreateAndUseTypes
         static void Main(string[] args)
         {
             Console.WriteLine("MS 70-483 #2 Create And Use Types");
-            new Obj21_CreateTypes().RunObjective();  //p89
+            //new Obj21_CreateTypes().RunObjective();  //p89
             new Obj22_ConsumeTypes().RunObjective();  //p107
 
             //       // TODO 
