@@ -234,12 +234,65 @@ namespace MS_70_483_02_CreateAndUseTypes
         private void Obj21_ExtendingExistingTypes(String title)
         {
             Console.WriteLine(title);
+            //Check out the Vehicle and Car classes
+            // use the virtual and override keywords in the Base and Derived classes respectively
+            // if you don't want a class extended, or a method overriden, use the 'sealed' keyword (like 'final' in Java)
 
+            //Overriding a Base class method in a Derived class method
+            Vehicle v1 = new Vehicle();
+            v1.StartEngine();
+            v1.StopEngine();
+            Car c1 = new Car();
+            c1.StartEngine();
+            c1.StopEngine();
 
+            //We'll get to this later...
+            //v1 = c1;
+            //v1.StartEngine();
+            //v1.StopEngine();
+
+            // Extension Methods
+            // - introduced in .NET 4.0
+            // - allow you to add additional functionality to existing classes without modifying them
+            // - must be declared in nongeneric non-nested static class (see class "Revving" below)
+
+            v1.Rev();
+            c1.Rev();
+
+            //We can even add Extension Methods to classes we don't own e.g. String
+            // Check out the Revving class below
+            String str = "Life is full of ups and downs";
+            Console.WriteLine("The String is: " + str);
+            str = str.StringThing(); // let's call our Extension Method
+            Console.WriteLine(str);
 
             Console.WriteLine("\n");
         }
 
     } //class
 
-    } //namespace
+    // Top level static class for the purpose of an "Extension Method".
+    static class Revving
+    {
+        public static void Rev(this Vehicle vehicle) // the "this" keyword indicates an "Extension Method"
+        {
+            Console.WriteLine("I'm Revving a Vehicle...");
+        }
+
+
+        //We can even add Extension Methods to classes we don't own e.g. String
+        public static String StringThing(this String myString)
+        {
+            char[] charry = myString.ToCharArray();
+            char[] tempCharry = new char[charry.Length];
+            for (int i = 0; i < tempCharry.Length; ++i)
+            {
+                tempCharry[i] = i % 2 == 0 ? char.ToUpper(charry[i]) : char.ToLower(charry[i]);
+            }
+                return new String(tempCharry);
+        }
+
+    }
+
+
+} //namespace
