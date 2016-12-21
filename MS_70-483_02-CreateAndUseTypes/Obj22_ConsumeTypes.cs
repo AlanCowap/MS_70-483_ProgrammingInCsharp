@@ -98,7 +98,15 @@ namespace MS_70_483_02_CreateAndUseTypes
 
 
             // 4. Conversion with a helper class
-            // 
+            //Converting between compatible types: use System.Convert and Parse, TryParse
+            //Converting between incomptaible types: use System.Bitconverter
+            //Converting between your own types:
+            // - you could override ToString, and provide Parse and/or TryParse method(s)
+            // - your class must implement the IFormattable interface in order to be used by the Convert class.
+            double pi = Convert.ToDouble("3.14");
+            pi = double.Parse("3.14");
+            bool isValid = double.TryParse("3.14", out pi);
+            Console.WriteLine("Converting \"3.14\" to the double " +pi+ " is valid? " + isValid );
 
 
 
