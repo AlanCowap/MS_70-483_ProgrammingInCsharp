@@ -143,9 +143,10 @@ namespace MS_70_483_02_CreateAndUseTypes
         {
             Console.WriteLine(title);
             //The 'dynamic' keyword was added in C# 4.0, allows for weak typing (as opposed to strongly typed)
+            //Note the 'var' keyword merely delays static type checking, but once a type is assigned then it is fixed; this is not so with dynamic!
             //- it causes the compiler to stop static type-checking e.g. can this property/method/etc be invoked on this type reference
             //- this avoids compiletime errors, but you may get smacked in the face at runtime :_( so be careful!
-            //Wedding yourself to dynamic is for better and for worse...
+            //- Wedding yourself to dynamic is for better and for worse...
 
             dynamic stuff = "This is a dynamic variable ";
             Console.WriteLine(stuff + "of length " + stuff.Length);
@@ -153,8 +154,8 @@ namespace MS_70_483_02_CreateAndUseTypes
             Console.WriteLine(stuff + 3 + " really dynamic!");
             stuff += stuff;
             Console.WriteLine(stuff + " powerful");
-            //Console.WriteLine("But with great power comes great responsibility " + stuff.Length);
-            Console.WriteLine(stuff + " dangerous");
+            //Console.WriteLine("But with great power comes great responsibility " + stuff.Length); //Is there a problem here?
+            Console.WriteLine(stuff + " potentially dangerous");
 
             Console.WriteLine("\n");
         }
