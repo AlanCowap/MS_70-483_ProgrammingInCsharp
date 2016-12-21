@@ -1,4 +1,14 @@
-﻿using System;
+﻿/**
+ * MS 70-483 Programming in C#
+ * Objective 1: Manage Program Flow
+ *
+ * @author Alan Cowap, and code from MOAC by Wouter de Kort
+ * @version 1.0  
+ * @dependencies None
+ *  
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
