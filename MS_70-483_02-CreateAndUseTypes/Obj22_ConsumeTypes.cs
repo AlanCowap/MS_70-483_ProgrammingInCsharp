@@ -108,12 +108,35 @@ namespace MS_70_483_02_CreateAndUseTypes
             bool isValid = double.TryParse("3.14", out pi);
             Console.WriteLine("Converting \"3.14\" to the double " +pi+ " is valid? " + isValid );
 
+            //Typesafe conversion using the 'is' and 'as' operators
+            //The 'is' operator returns true or false if the type is or is not the same as the dataype checked respectively.
+            Vehicle v1 = new Vehicle();
+            Vehicle v2 = new Car();
+            if (v1 is Car)
+            {
+                Console.WriteLine("It's a Car");
+                Car c1 = (Car) v1;  //can safely do a cast
+            }
+            else if (v1 is Vehicle)
+                Console.WriteLine("It's a Vehicle");
+
+            if (v2 is Car)
+            {
+                Console.WriteLine("It's a Car");
+                Car c1 = (Car)v2;  //can safely do a cast
+            }
+            else if (v2 is Vehicle)
+                Console.WriteLine("It's a Vehicle");
+
+            //The 'as' operator returns the converted reference, or null if the conversio is not possible
+            Car car1 = v1 as Car; // oops, v1 refers toa Vehicle (not a Car), so that'll be null
+            Car car2 = v2 as Car; // that's ok
+            Console.WriteLine("c1 is now referencing <" + car1 + ">");
+            Console.WriteLine("c2 is now referencing <" + car2 + ">");
 
 
             Console.WriteLine("\n");
         }
-
-
 
 
         private void Obj22_DynamicTypes(String title)
