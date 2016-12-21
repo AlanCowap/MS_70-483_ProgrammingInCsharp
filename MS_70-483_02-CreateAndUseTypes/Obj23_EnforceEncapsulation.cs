@@ -23,6 +23,12 @@ namespace MS_70_483_02_CreateAndUseTypes
             String title = "\nObjective 2.3. Enforce Encapsulation";
             Console.WriteLine(title);
 
+            //Encapsulation is a cornerstone of OOP
+            // - hide implementation details
+            // - program to an interface
+            // - mostly we're concerned with what a method does - not how it does it (mostly).
+            // - it's like eating in a restaurant, order from the waiter (interface) and leave the cooking to the chef (implementation details)
+
             Obj23_EnforceEncapsulation demo = new Obj23_EnforceEncapsulation();
             demo.Obj23_UsingAccessModifiers(title + ": Using Access Modifiers");   //p116
             //demo.Obj23_Properties(title + ": Properties"); //p120

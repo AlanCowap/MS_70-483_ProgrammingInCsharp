@@ -157,6 +157,8 @@ namespace MS_70_483_02_CreateAndUseTypes
             //Console.WriteLine("But with great power comes great responsibility " + stuff.Length); //Is there a problem here?
             Console.WriteLine(stuff + " potentially dangerous");
 
+            //See book for sample code using DynamicObject and ExpandoObject
+
             Console.WriteLine("\n");
         }
 
