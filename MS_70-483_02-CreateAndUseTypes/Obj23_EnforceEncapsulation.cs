@@ -38,6 +38,15 @@ namespace MS_70_483_02_CreateAndUseTypes
         private void Obj23_UsingAccessModifiers(String title)
         {
             Console.WriteLine(title);
+            //Q. So how do we "Hide implementation details", after all we like open source so shouldn't we let others see our code?
+            //A. Yes we let others see our code, but we use access modifiers to restrict visibility of our code to other code where appropriate.
+            //Differenet people write the 5 different levels of acces in different orders, this is my preference:
+            //- private             same class/struct
+            //- protected           same class/struct + derived classes
+            //- internal            same assembly
+            //- protected internal  same assembly + derived classes (access must be from a derived class, more here: https://msdn.microsoft.com/en-us/library/ms173121.aspx )
+            //- public              same assembly + other assembly that references the assembly.
+
 
 
             Console.WriteLine("\n");
